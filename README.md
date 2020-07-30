@@ -7,7 +7,6 @@ At the moment we dont have a pip package set up as its not at that stage yet but
 self bots with this.
 ####Step 1
 Get your AUTH and TOKEN from the networks tab of Hiven (on the bot account).
-- AUTH - Go to the blue arrow and your auth is the red line![AUTH](Images/AUTH.jpg)
 - TOKEN - Go to the blue arrows and your token is the red line![TOKEN](Images/TOKEN.png)
 
 ####Step 2
@@ -18,9 +17,8 @@ from bot import events
 ```
 This will import the bot and events. After this you will need to type
 ```python
-AUTH = "Your auth from before"
 TOKEN = "Your token from before"
-bot = b.Bot(AUTH, TOKEN)
+bot = b.Bot(TOKEN)
 ```
 You can also set `debug=True` if you want debugs from the websocket and `output=True` if you want outputs 
 from each websocket message.
@@ -30,8 +28,7 @@ Next you will need to setup the events and login to the bot. To do this please t
 ```python
 @events.event
 def on_message(ctx):
-    if ctx.author.name != "Your bots name":  
-        # Make sure to add your bots name to stop spam (This will be fixed in the update)
+    if ctx.author.id != bot.user.id:  
         # Do stuff
 
 bot.login()
