@@ -3,13 +3,19 @@ Welcome to the unofficial hivenpy api wrapper. So far we only have self bots as 
 This is a work in progress project made by NexInfinite, CanCodes, and Xenen.
 
 # How to use
-At the moment we dont have a pip package set up as its not at that stage yet but you can still make 
-self bots with this.
-#### Step 1
-Get your AUTH and TOKEN from the networks tab of Hiven (on the bot account).
-- TOKEN - Go to the blue arrows and your token is the red line![TOKEN](Images/TOKEN.png)
 
-#### Step 2
+### Getting your token
+Make a bot account for your hiven bot.
+Open up chrome dev tools.
+Go to the network tab.
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/networktab.PNG)
+Press Ctrl-R then go to messages.
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/messagesimages.PNG)
+Go the headers tab
+Scroll down and copy your token.
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/authimage.png)
+
+### Setup
 Download the code and place it in your project. You will then need to add 
 ```python
 import bot as b
@@ -23,7 +29,7 @@ bot = b.Bot(TOKEN)
 You can also set `debug=True` if you want debugs from the websocket and `output=True` if you want outputs 
 from each websocket message.
 
-#### Step 3
+### Making your bot
 Next you will need to setup the events and login to the bot. To do this please type:
 ```python
 @events.event
@@ -36,6 +42,8 @@ bot.login()
 Congratulations! You now have a self bot for hiven! 
 
 # Please note
+At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
+self bots with this.
 This is a work in progress project so everything is going to change soon. This is temporary so you can start making
 and experimenting with new bots now.
 <br><br>
