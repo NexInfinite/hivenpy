@@ -12,8 +12,9 @@ Get your AUTH and TOKEN from the networks tab of Hiven (on the bot account).
 #### Step 2
 Download the code and place it in your project. You will then need to add 
 ```python
-import bot as b
-from bot import events
+
+from Hiven import bot as b
+from Hiven.bot import events
 ```
 This will import the bot and events. After this you will need to type
 ```python
