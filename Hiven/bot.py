@@ -5,8 +5,8 @@ import time
 import requests
 import websocket
 
-from Hiven.objects import *
-from Hiven.events import *
+from objects import *
+from events import *
 
 
 class Bot:
