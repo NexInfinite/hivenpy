@@ -95,9 +95,10 @@ class Bot:
                 'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
             }
 
-            r = requests.get('https://api.hiven.io/v1/users/nexinfinite', headers=headers).json()
+            r = requests.get(f'https://api.hiven.io/v1/users/{username.lower()}', headers=headers).json()
             if r['success']:
                 data = r['data']
+                self.success = True
                 self.id = data['id']
                 self.name = data['name']
                 self.username = data['username']
@@ -106,4 +107,5 @@ class Bot:
                 self.location = data['location']
                 self.website = data['website']
                 self.bio = data['bio']
-
+            else:
+                self.success = False
