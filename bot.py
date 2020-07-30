@@ -14,11 +14,12 @@ events_name = []
 
 
 class Bot:
-    def __init__(self, token, auth, debug=False):
+    def __init__(self, token, auth, debug=False, output=False):
         self.TOKEN = token,
         self.WEBSOCKET = "wss://swarm-dev.hiven.io/socket?encoding=json&compression=text_json"
         self.HEARTBEAT = 0,
         self.AUTH = auth,
+        self.OUTPUT = output
         if debug:
             websocket.enableTrace(True)
         self.ws = websocket.WebSocketApp(self.WEBSOCKET,
@@ -32,7 +33,8 @@ class Bot:
         if context_json["op"] == 1:
             self.HEARTBEAT = context_json["d"]["hbt_int"]
         else:
-            print(context_json)
+            if self.OUTPUT:
+                print(context_json)
             if context_json['e'] == "MESSAGE_CREATE":
                 ctx_json = context_json['d']
                 ctx = ctx_obj(ctx_json, self)
