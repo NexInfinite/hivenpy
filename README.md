@@ -8,9 +8,9 @@ This is a work in progress project made by NexInfinite, CanCodes, and Xenen.
 Make a bot account for your hiven bot.
 Open up chrome dev tools.
 Go to the network tab.
-Press Ctrl-R then go to messages.
 ![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/networktab.PNG)
 <br><br>
+Press Ctrl-R then go to messages.
 ![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/messagesimages.PNG)
 Go to the headers tab
 Scroll down and copy your token.
