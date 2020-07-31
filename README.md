@@ -22,7 +22,7 @@ Download the code and place it in your project. You will then need to add
 ```python
 
 from Hiven import bot as b
-from Hiven.bot import events
+from Hiven.events import events
 ```
 This will import the bot and events. After this you will need to type
 ```python
