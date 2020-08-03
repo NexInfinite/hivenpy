@@ -5,16 +5,17 @@ import time
 import requests
 import websocket
 
-from objects import *
-from events import *
+from .objects import *
+from .events import *
 
 
 class Bot:
     def __init__(self, token, debug=False, output=False):
-        self.TOKEN = token,
+        self.TOKEN = token
         self.user = None
+        self.restURL = "https://api.hiven.io/v1"
         self.WEBSOCKET = "wss://swarm-dev.hiven.io/socket?encoding=json&compression=text_json"
-        self.HEARTBEAT = 0,
+        self.HEARTBEAT = 0
         self.OUTPUT = output
         if debug:
             websocket.enableTrace(True)
@@ -23,7 +24,7 @@ class Bot:
                                          on_open=lambda ws: self.on_open(ws))
 
     def on_open(self, ws):
-        ws.send('{"op": 2, "d":{"token": "' + self.TOKEN[0] + '"}}')
+        ws.send('{"op": 2, "d":{"token": "' + self.TOKEN + '"}}')
 
         def run(*args):
             while True:
@@ -37,22 +38,14 @@ class Bot:
 
     def send(self, message, house_id, room_id):
         headers = {
-            'authority': 'api.hiven.io',
-            'accept': 'application/json, text/plain, */*',
-            'authorization': self.TOKEN[0],
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36',
-            'content-type': 'application/json;charset=UTF-8',
-            'origin': 'https://app.hiven.io',
-            'sec-fetch-site': 'same-site',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-dest': 'empty',
-            'referer': f'https://app.hiven.io/houses/{house_id}/rooms/{room_id}',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'authorization': self.TOKEN,
+            'user-agent': 'hiven.py',
+            'content-type': 'application/json'
         }
 
         data = '{"content": \"' + message + '\"}'
 
-        r = requests.post(f'https://api.hiven.io/v1/rooms/{room_id}/messages', headers=headers, data=data)
+        r = requests.post(f'{self.restURL}/rooms/{room_id}/messages', headers=headers, data=data)
 
     def on_message(self, ws, context):
         context_json = json.loads(context)
@@ -84,18 +77,10 @@ class Bot:
     class get_user:
         def __init__(self, username):
             headers = {
-                'authority': 'api.hiven.io',
-                'accept': 'application/json, text/plain, */*',
-                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36',
-                'origin': 'https://canary.hiven.io',
-                'sec-fetch-site': 'same-site',
-                'sec-fetch-mode': 'cors',
-                'sec-fetch-dest': 'empty',
-                'referer': f'https://canary.hiven.io/@{username.lower()}',
-                'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+                'user-agent': 'hiven.py',
             }
 
-            r = requests.get(f'https://api.hiven.io/v1/users/{username.lower()}', headers=headers).json()
+            r = requests.get(f'{self.restURL}/users/{username.lower()}', headers=headers).json()
             if r['success']:
                 data = r['data']
                 self.success = True
