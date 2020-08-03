@@ -9,12 +9,11 @@ Make a bot account for your hiven bot.
 Open up chrome dev tools.
 Go to the network tab.
 ![Image not found](Images/networktab.PNG)
-Press Ctrl-R then go to messages.
+Press Ctrl-R then click on the messages cell.
 <br><br>
 ![Image not found](Images/messagesimages.PNG)
 <br><br>
-Go to the headers tab
-Scroll down and copy your token.
+Go to the headers tab then scroll down and copy your token.
 ![Image not found](Images/authimage.png)
 
 ### Setup
