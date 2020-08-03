@@ -1,6 +1,6 @@
-import requests
-
 from Hiven.Websocket.websocket_handler import *
+from Hiven.Objects.bot_user import *
+from Hiven.Methods.send import *
 
 
 class Bot:
@@ -16,16 +16,8 @@ class Bot:
     def login(self):
         WebSocket(self.TOKEN, self.DEBUG, self.OUTPUT)
 
-    def send(self, message, house_id, room_id):
-        headers = {
-            'authorization': self.TOKEN,
-            'user-agent': 'hiven.py',
-            'content-type': 'application/json'
-        }
-
-        data = '{"content": \"' + message + '\"}'
-
-        r = requests.post(f'{self.restURL}/rooms/{room_id}/messages', headers=headers, data=data)
+    def send(self, message, room_id):
+        send_message(message, room_id, self.TOKEN, self.restURL)
 
     class get_user:
         def __init__(self, username):

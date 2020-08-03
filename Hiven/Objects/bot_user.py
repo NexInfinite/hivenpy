@@ -5,3 +5,4 @@ class bot_user:
         self.name = user['name']
         self.username = user['username']
         self.user_flags = user['user_flags']
+

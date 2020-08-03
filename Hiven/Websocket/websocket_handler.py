@@ -4,7 +4,7 @@ import json
 import time
 
 from Hiven.Objects.bot_user import *
-from Hiven.Objects.ctx import *
+from Hiven.Objects.message import *
 from Hiven.Objects.house import *
 from Hiven.Objects.member_enter import *
 from Hiven.Objects.typing import *
@@ -61,4 +61,4 @@ class WebSocket:
                 events.call(ctx, "on_member_enter")
             elif context_json['e'] == "INIT_STATE":
                 ctx_json = context_json['d']
-                self.user = bot_user(ctx_json)
+                user = bot_user(ctx_json)
