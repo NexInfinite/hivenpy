@@ -1,4 +1,5 @@
 import _thread as thread
+import threading
 import websocket
 import json
 import time
@@ -12,18 +13,21 @@ from Hiven.Events.events import *
 
 
 class WebSocket:
-    def __init__(self, token, debug=False, output=False):
+    def __init__(self, token, debug=False, output=False, outer=None):
         self.TOKEN = token
         self.user = None
         self.restURL = "https://api.hiven.io/v1"
         self.WEBSOCKET = "wss://swarm-dev.hiven.io/socket?encoding=json&compression=text_json"
         self.HEARTBEAT = 0
         self.OUTPUT = output
+        self.outer = outer
         if debug:
             websocket.enableTrace(True)
         self.ws = websocket.WebSocketApp(self.WEBSOCKET,
                                          on_message=lambda ws, msg: self.on_message(ws, msg),
                                          on_open=lambda ws: self.on_open(ws))
+
+    def start(self):
         self.ws.run_forever()
 
     def on_open(self, ws):
@@ -61,4 +65,4 @@ class WebSocket:
                 events.call(ctx, "on_member_enter")
             elif context_json['e'] == "INIT_STATE":
                 ctx_json = context_json['d']
-                user = bot_user(ctx_json)
+                self.outer.user = bot_user(ctx_json)
