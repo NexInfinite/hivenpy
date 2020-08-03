@@ -3,8 +3,12 @@ import websocket
 import json
 import time
 
-from Hiven.objects import *
-from Hiven.events import *
+from Hiven.Objects.bot_user import *
+from Hiven.Objects.ctx import *
+from Hiven.Objects.house import *
+from Hiven.Objects.member_enter import *
+from Hiven.Objects.typing import *
+from Hiven.Events.events import *
 
 
 class WebSocket:

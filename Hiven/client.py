@@ -1,6 +1,6 @@
 import requests
 
-from Hiven.websocket_handler import *
+from Hiven.Websocket.websocket_handler import *
 
 
 class Bot:
