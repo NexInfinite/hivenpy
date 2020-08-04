@@ -23,7 +23,7 @@ Go to the headers tab then scroll down and copy your token.
 ![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/authimage.png?raw=true)
 
 ### Setup
-Download the code and place it in your project. You will then need to add 
+Open command prompt and type `pip install hivenpy`.In your main.py file add 
 ```python
 from Hiven.client import Bot, events
 ```
