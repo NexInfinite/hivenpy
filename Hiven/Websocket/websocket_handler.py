@@ -14,11 +14,10 @@ from Hiven.Events.events import *
 
 class WebSocket:
     def __init__(self, token, debug=False, output=False, outer=None):
-        self.TOKEN = token
-        self.user = None
         self.restURL = "https://api.hiven.io/v1"
         self.WEBSOCKET = "wss://swarm-dev.hiven.io/socket?encoding=json&compression=text_json"
         self.HEARTBEAT = 0
+        self.TOKEN = token
         self.OUTPUT = output
         self.outer = outer
         if debug:
@@ -33,7 +32,7 @@ class WebSocket:
     def on_open(self, ws):
         ws.send('{"op": 2, "d":{"token": "' + self.TOKEN + '"}}')
 
-        def run(*args):
+        def run():
             while True:
                 time.sleep(self.HEARTBEAT / 1000)
                 ws.send('{"op": 3}')
