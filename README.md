@@ -11,16 +11,14 @@ pip install hivenpy
 ```
 
 ### Getting your token
-Make a bot account for your hiven bot.
-Open up chrome dev tools.
-Go to the network tab.
-![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/networktab.PNG?raw=true)
-Press Ctrl-R then click on the messages cell.
+Make a bot account for your hiven bot then open up chrome dev tools (F12) and go to the console tab.
 <br><br>
-![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/messagesimages.PNG?raw=true)
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/console.png?raw=true)
+<br>Type `localStorage['hiven-auth']` and hit enter.
 <br><br>
-Go to the headers tab then scroll down and copy your token.
-![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/authimage.png?raw=true)
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/Local%20Storage.png?raw=true)
+<br>Your token is where the red lines are.
+
 
 ### Setup
 Download the code and place it in your project. You will then need to add 
