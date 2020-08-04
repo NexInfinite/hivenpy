@@ -8,13 +8,13 @@ This is a work in progress project made by NexInfinite, CanCodes, and Xenen.
 Make a bot account for your hiven bot.
 Open up chrome dev tools.
 Go to the network tab.
-![Image not found](Images/networktab.PNG)
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/networktab.PNG?raw=true)
 Press Ctrl-R then click on the messages cell.
 <br><br>
-![Image not found](Images/messagesimages.PNG)
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/messagesimages.PNG?raw=true)
 <br><br>
 Go to the headers tab then scroll down and copy your token.
-![Image not found](Images/authimage.png)
+![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/authimage.png?raw=true)
 
 ### Setup
 Download the code and place it in your project. You will then need to add 
@@ -45,8 +45,8 @@ Congratulations! You now have a self bot for hiven!
 You can see a list of all examples in the folder names [Examples](Examples).
 
 # Please note
-At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
-self bots with this.
+~~At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
+self bots with this.~~ We now have a [pip package](https://pypi.org/project/hivenpy/1.6/)! Download it to try everything out.
 This is a work in progress project so everything is going to change soon. This is temporary so you can start making
 and experimenting with new bots now.
 <br><br>
