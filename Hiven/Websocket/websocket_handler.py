@@ -5,10 +5,12 @@ import json
 import time
 
 from Hiven.Objects.bot_user import *
-from Hiven.Objects.message import *
 from Hiven.Objects.house import *
 from Hiven.Objects.member_enter import *
+from Hiven.Objects.member_exit import *
+from Hiven.Objects.message import *
 from Hiven.Objects.typing import *
+
 from Hiven.Events.events import *
 
 
@@ -44,25 +46,25 @@ class WebSocket:
         if context_json["op"] == 1:
             self.HEARTBEAT = context_json["d"]["hbt_int"]
         else:
+            ctx_json = context_json['d']
+            event = context_json['e']
             if self.OUTPUT:
                 print(context_json)
-            if context_json['e'] == "MESSAGE_CREATE":
-                ctx_json = context_json['d']
+            if event == "MESSAGE_CREATE":
                 ctx = ctx_obj(ctx_json, self.outer)
                 events.call(ctx, "on_message")
-            elif context_json['e'] == "TYPING_START":
-                ctx_json = context_json['d']
+            elif event == "TYPING_START":
                 ctx = typing_ctx_obj(ctx_json)
                 events.call(ctx, "on_typing")
-            elif context_json['e'] == "HOUSE_JOIN":
-                ctx_json = context_json['d']
+            elif event == "HOUSE_JOIN":
                 ctx = house_ctx_obj(ctx_json)
                 events.call(ctx, "on_house_join")
-            elif context_json['e'] == "HOUSE_MEMBER_ENTER":
-                ctx_json = context_json['d']
+            elif event == "HOUSE_MEMBER_ENTER":
                 ctx = member_enter_obj(ctx_json)
                 events.call(ctx, "on_member_enter")
-            elif context_json['e'] == "INIT_STATE":
-                ctx_json = context_json['d']
+            elif event == "INIT_STATE":
                 self.outer.user = bot_user(ctx_json)
                 events.call(None, "on_ready")
+            elif event == "HOUSE_MEMBER_EXIT":
+                ctx = member_exit_obj(ctx_json)
+                events.call(ctx, "on_member_exit")
