@@ -21,4 +21,7 @@ class events:
     def call(ctx, name):
         func = events.find_event(name)
         if func:
-            func(ctx)
+            if ctx is not None:
+                func(ctx)
+            else:
+                func()

@@ -21,4 +21,4 @@ class ctx_obj:
             self.id = author_json['id']
 
     def send(self, message):
-        self.bot.send(message=message, house_id=self.house_id, room_id=self.room_id)
+        self.bot.send(message=message, room_id=self.room_id)

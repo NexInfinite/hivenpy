@@ -49,7 +49,7 @@ class WebSocket:
                 print(context_json)
             if context_json['e'] == "MESSAGE_CREATE":
                 ctx_json = context_json['d']
-                ctx = ctx_obj(ctx_json, self)
+                ctx = ctx_obj(ctx_json, self.outer)
                 events.call(ctx, "on_message")
             elif context_json['e'] == "TYPING_START":
                 ctx_json = context_json['d']
@@ -66,3 +66,4 @@ class WebSocket:
             elif context_json['e'] == "INIT_STATE":
                 ctx_json = context_json['d']
                 self.outer.user = bot_user(ctx_json)
+                events.call(None, "on_ready")

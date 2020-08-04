@@ -19,14 +19,12 @@ Go to the headers tab then scroll down and copy your token.
 ### Setup
 Download the code and place it in your project. You will then need to add 
 ```python
-
-from Hiven import bot as b
-from Hiven.events import events
+from Hiven.client import Bot, events
 ```
 This will import the bot and events. After this you will need to type
 ```python
 TOKEN = "Your token from before"
-bot = b.Bot(TOKEN)
+bot = Bot(TOKEN)
 ```
 You can also set `debug=True` if you want debugs from the websocket and `output=True` if you want outputs 
 from each websocket message.
@@ -42,6 +40,9 @@ def on_message(ctx):
 bot.login()
 ```
 Congratulations! You now have a self bot for hiven! 
+
+# Examples
+You can see a list of all examples in the folder names [Examples](Examples).
 
 # Please note
 At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
