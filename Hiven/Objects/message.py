@@ -19,6 +19,7 @@ class ctx_obj:
             self.username = author_json['username']
             self.name = author_json['name']
             self.id = author_json['id']
+            self.iconURL = f"https://media.hiven.io/v1/users/{author_json['id']}/icons/{author_json['icon']}"
 
     def send(self, message):
         self.bot.send(message=message, room_id=self.room_id)
