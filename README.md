@@ -4,6 +4,12 @@ This is a work in progress project made by NexInfinite, CanCodes, and Xenen.
 
 # How to use
 
+### Installation
+To install Hiven.py type 
+```python
+pip install hivenpy
+```
+
 ### Getting your token
 Make a bot account for your hiven bot.
 Open up chrome dev tools.
