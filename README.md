@@ -12,7 +12,6 @@ pip install hivenpy
 
 ### Getting your token
 Make a bot account for your hiven bot. Open up the console by pressing Command+Option+J (Mac) Control+Shift+J (Windows, Linux, Chrome OS).
-Type `localStorage['hiven-auth']` then copy your token.
 <br><br>
 ![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/console.png?raw=true)
 <br>Type `localStorage['hiven-auth']` and hit enter.
