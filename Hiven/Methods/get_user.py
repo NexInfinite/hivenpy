@@ -2,12 +2,12 @@ import requests
 
 
 class GetUser:
-    def __init__(self, username):
+    def __init__(self, username, outer):
         headers = {
             'user-agent': 'hiven.py',
         }
 
-        r = requests.get(f'{self.restURL}/users/{username.lower()}', headers=headers).json()
+        r = requests.get(f'{outer.restURL}/users/{username.lower()}', headers=headers).json()
         if r['success']:
             data = r['data']
             self.success = True

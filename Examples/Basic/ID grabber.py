@@ -10,8 +10,11 @@ def on_ready():
 
 @events.event
 def on_message(ctx):
+    message = ctx.message
     if ctx.author.id != bot.user.id:
-        ctx.send(f"**{ctx.author.name}** just said **{ctx.message.content}**")
+        if message.content == "!id":
+            user = bot.get_user(ctx.author.username)
+            ctx.send(f"The id of `{user.username}` is `{user.id}`")
 
 
 bot.login()

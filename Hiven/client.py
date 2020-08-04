@@ -13,10 +13,12 @@ class Bot:
         self.DEBUG = debug
         self.ws = WebSocket(self.TOKEN, self.DEBUG, self.OUTPUT, self)
         self.user = None
-        self.get_user = GetUser
 
     def login(self):
         self.ws.start()
 
     def send(self, message, room_id):
         send_message(message, room_id, self.TOKEN, self.restURL)
+
+    def get_user(self, username):
+        return GetUser(username, self)
