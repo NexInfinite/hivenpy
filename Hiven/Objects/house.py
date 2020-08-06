@@ -8,7 +8,7 @@ class house_ctx_obj:
         def __init__(self, ctx):
             self.name = ctx['name']
             self.owner = self.Owner(ctx)
-            self.id = ctx['id']
+            self.id = ctx['rooms'][0]['house_id']
 
 
         class Owner:
