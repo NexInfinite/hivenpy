@@ -11,7 +11,7 @@ pip install hivenpy
 ```
 
 ### Getting your token
-Make a bot account for your hiven bot then open up chrome dev tools (F12) and go to the console tab.
+Make a bot account for your hiven bot. Open up the console by pressing Command+Option+J (Mac) Control+Shift+J (Windows, Linux, Chrome OS).
 <br><br>
 ![Image not found](https://github.com/NexInfinite/hivenpy/blob/master/Images/console.png?raw=true)
 <br>Type `localStorage['hiven-auth']` and hit enter.
@@ -50,7 +50,7 @@ You can see a list of all examples in the folder names [Examples](Examples).
 
 # Please note
 ~~At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
-self bots with this.~~ We now have a [pip package](https://pypi.org/project/hivenpy/1.6/)! Download it to try everything out.
+self bots with this.~~ We now have a [pip package](https://pypi.org/project/hivenpy/)! Download it to try everything out.
 This is a work in progress project so everything is going to change soon. This is temporary so you can start making
 and experimenting with new bots now.
 <br><br>
