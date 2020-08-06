@@ -21,10 +21,14 @@ class ctx_obj:
     class Author:
         def __init__(self, ctx):
             author_json = ctx['author']
+            
             self.username = author_json['username']
             self.name = author_json['name']
             self.id = author_json['id']
-            self.iconURL = f"https://media.hiven.io/v1/users/{author_json['id']}/icons/{author_json['icon']}"
+            self.icon = author_json['icon']
+            
+        def getIconURL(self):
+            return f"https://media.hiven.io/v1/users/{self.id}/icons/{self.icon}"
 
     def send(self, message):
         self.bot.send(message=message, room_id=self.room_id)

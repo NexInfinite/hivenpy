@@ -50,7 +50,7 @@ You can see a list of all examples in the folder names [Examples](Examples).
 
 # Please note
 ~~At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
-self bots with this.~~ We now have a [pip package](https://pypi.org/project/hivenpy/1.6/)! Download it to try everything out.
+self bots with this.~~ We now have a [pip package](https://pypi.org/project/hivenpy/)! Download it to try everything out.
 This is a work in progress project so everything is going to change soon. This is temporary so you can start making
 and experimenting with new bots now.
 <br><br>
