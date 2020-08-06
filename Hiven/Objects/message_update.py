@@ -1,9 +1,5 @@
-import datetime
-
-
-class ctx_obj:
-    def __init__(self, ctx, bot):
-        self.bot = bot
+class message_update_obj:
+    def __init__(self, ctx):
         self.message = self.Message(ctx)
         self.author = self.Author(ctx)
         self.room_id = ctx['room_id']
@@ -13,10 +9,8 @@ class ctx_obj:
         def __init__(self, ctx):
             self.content = ctx['content']
             self.timestamp = ctx['timestamp']
-            self.time = datetime.datetime.fromtimestamp(float(ctx['timestamp']) / 1e3)
             self.id = ctx['id']
             self.mentions = ctx['mentions']
-            # edit mentions
 
     class Author:
         def __init__(self, ctx):
@@ -25,6 +19,3 @@ class ctx_obj:
             self.name = author_json['name']
             self.id = author_json['id']
             self.iconURL = f"https://media.hiven.io/v1/users/{author_json['id']}/icons/{author_json['icon']}"
-
-    def send(self, message):
-        self.bot.send(message=message, room_id=self.room_id)

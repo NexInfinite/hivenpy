@@ -9,6 +9,7 @@ from Hiven.Objects.house import *
 from Hiven.Objects.member_enter import *
 from Hiven.Objects.member_exit import *
 from Hiven.Objects.message import *
+from Hiven.Objects.message_update import *
 from Hiven.Objects.typing import *
 
 from Hiven.Events.events import *
@@ -68,3 +69,6 @@ class WebSocket:
             elif event == "HOUSE_MEMBER_EXIT":
                 ctx = member_exit_obj(ctx_json)
                 events.call(ctx, "on_member_exit")
+            elif event == "MESSAGE_UPDATE":
+                ctx = message_update_obj(ctx_json)
+                events.call(ctx, "on_message_update")
