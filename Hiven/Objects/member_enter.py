@@ -1,7 +1,11 @@
+import datetime
+
+
 class member_enter_obj:
     def __init__(self, ctx):
         self.house_id = ctx['house_id']
-        self.joined_at = ctx['joined_at']
+        self.joined_at_timestamp = ctx['joined_at']
+        self.joined_at = datetime.datetime.fromtimestamp(float(ctx['joined_at']) / 1e3)
         self.roles = ctx['roles']
         self.user = self.User(ctx)
 
