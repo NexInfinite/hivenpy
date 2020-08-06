@@ -5,13 +5,10 @@ import json
 import time
 
 from Hiven.Objects.bot_user import *
+from Hiven.Objects.message import *
 from Hiven.Objects.house import *
 from Hiven.Objects.member_enter import *
-from Hiven.Objects.member_exit import *
-from Hiven.Objects.message import *
-from Hiven.Objects.message_update import *
 from Hiven.Objects.typing import *
-
 from Hiven.Events.events import *
 
 
@@ -47,28 +44,25 @@ class WebSocket:
         if context_json["op"] == 1:
             self.HEARTBEAT = context_json["d"]["hbt_int"]
         else:
-            ctx_json = context_json['d']
-            event = context_json['e']
             if self.OUTPUT:
                 print(context_json)
-            if event == "MESSAGE_CREATE":
+            if context_json['e'] == "MESSAGE_CREATE":
+                ctx_json = context_json['d']
                 ctx = ctx_obj(ctx_json, self.outer)
                 events.call(ctx, "on_message")
-            elif event == "TYPING_START":
+            elif context_json['e'] == "TYPING_START":
+                ctx_json = context_json['d']
                 ctx = typing_ctx_obj(ctx_json)
                 events.call(ctx, "on_typing")
-            elif event == "HOUSE_JOIN":
+            elif context_json['e'] == "HOUSE_JOIN":
+                ctx_json = context_json['d']
                 ctx = house_ctx_obj(ctx_json)
                 events.call(ctx, "on_house_join")
-            elif event == "HOUSE_MEMBER_ENTER":
+            elif context_json['e'] == "HOUSE_MEMBER_ENTER":
+                ctx_json = context_json['d']
                 ctx = member_enter_obj(ctx_json)
                 events.call(ctx, "on_member_enter")
-            elif event == "INIT_STATE":
+            elif context_json['e'] == "INIT_STATE":
+                ctx_json = context_json['d']
                 self.outer.user = bot_user(ctx_json)
                 events.call(None, "on_ready")
-            elif event == "HOUSE_MEMBER_EXIT":
-                ctx = member_exit_obj(ctx_json)
-                events.call(ctx, "on_member_exit")
-            elif event == "MESSAGE_UPDATE":
-                ctx = message_update_obj(ctx_json)
-                events.call(ctx, "on_message_update")
