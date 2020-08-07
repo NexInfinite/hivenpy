@@ -1,6 +1,3 @@
-import datetime
-
-
 class ctx_obj:
     def __init__(self, ctx, bot):
         self.bot = bot
@@ -13,7 +10,6 @@ class ctx_obj:
         def __init__(self, ctx):
             self.content = ctx['content']
             self.timestamp = ctx['timestamp']
-            self.time = datetime.datetime.fromtimestamp(float(ctx['timestamp']) / 1e3)
             self.id = ctx['id']
             self.mentions = ctx['mentions']
 
