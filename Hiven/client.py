@@ -4,6 +4,7 @@ from Hiven.Methods.get_user import *
 
 # Should we make this async???
 
+
 class Bot:
     def __init__(self, token, debug=False, output=False):
         self.restURL = "https://api.hiven.io/v1"

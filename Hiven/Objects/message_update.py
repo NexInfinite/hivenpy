@@ -1,3 +1,6 @@
+import datetime
+
+
 class message_update_obj:
     def __init__(self, ctx):
         self.message = self.Message(ctx)
@@ -9,6 +12,7 @@ class message_update_obj:
         def __init__(self, ctx):
             self.content = ctx['content']
             self.timestamp = ctx['timestamp']
+            self.time = datetime.datetime.fromtimestamp(float(ctx['timestamp']) / 1e3)
             self.id = ctx['id']
             self.mentions = ctx['mentions']
 
