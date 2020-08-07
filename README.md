@@ -46,7 +46,7 @@ bot.login()
 Congratulations! You now have a self bot for hiven! 
 
 # Examples
-You can see a list of all examples in the folder names [Examples](Examples).
+You can see a list of all examples in the folder names [Examples](https://github.com/NexInfinite/hivenpy/tree/master/Examples).
 
 # Please note
 ~~At the moment we don't have a pip package set up as it's not at that stage yet but you can still make 
