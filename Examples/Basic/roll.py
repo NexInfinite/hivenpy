@@ -12,7 +12,7 @@ def on_ready():
 @events.event
 def on_message(ctx):
     if ctx.author.id != bot.user.id:
-        if ctx.message == "!roll":
+        if ctx.message.content == "!roll":
             ctx.send(randint(1, 6))
 
 bot.login()
