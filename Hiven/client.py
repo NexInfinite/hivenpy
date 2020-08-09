@@ -1,6 +1,7 @@
 from Hiven.Websocket.websocket_handler import *
 from Hiven.Methods.send import *
 from Hiven.Methods.get_user import *
+from Hiven.Methods.ping import *
 
 # Should we make this async???
 
@@ -20,3 +21,7 @@ class Bot:
 
     def get_user(self, username):
         return GetUser(username, self)
+
+    @staticmethod
+    def ping():
+        return Ping()

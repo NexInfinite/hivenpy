@@ -8,6 +8,6 @@ def send_message(message, room_id, token, restURL):
         'content-type': 'application/json'
     }
 
-    data = '{"content": \"' + message + '\"}'
+    data = '{"content": \"' + message.replace("\n", "\\n") + '\"}'
 
     requests.post(f'{restURL}/rooms/{room_id}/messages', headers=headers, data=data)

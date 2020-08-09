@@ -1,5 +1,4 @@
 import _thread as thread
-import threading
 import websocket
 import json
 import time
