@@ -2,7 +2,7 @@
 Welcome to the unofficial hivenpy api wrapper. So far we only have self bots as bot account aren't made yet. 
 This is a work in progress project made by NexInfinite, CanCodes, and Xenen.
 
-> Please not that this is in beta and is not fully complete!
+> Please note that this is in beta and is not fully complete!
 
 # How to use
 
