@@ -16,10 +16,10 @@ class Bot:
     def login(self):
         self.ws.start()
 
-    def send(self, message, room_id):
+    async def send(self, message, room_id):
         send_message(message, room_id, self.TOKEN, self.restURL)
 
-    def get_user(self, username):
+    async def get_user(self, username):
         return GetUser(username, self)
 
     @staticmethod

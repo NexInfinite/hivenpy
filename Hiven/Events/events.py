@@ -18,10 +18,10 @@ class events:
             return False
 
     @staticmethod
-    def call(ctx, name):
+    async def call(ctx, name):
         func = events.find_event(name)
         if func:
             if ctx is not None:
-                func(ctx)
+                await func(ctx)
             else:
-                func()
+                await func()

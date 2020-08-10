@@ -41,7 +41,7 @@ class WebSocket:
 
         thread.start_new_thread(run, ())
 
-    def on_message(self, ws, context):
+    async def on_message(self, ws, context):
         context_json = json.loads(context)
         if context_json["op"] == 1:
             self.HEARTBEAT = context_json["d"]["hbt_int"]
@@ -52,22 +52,22 @@ class WebSocket:
                 print(context_json)
             if event == "MESSAGE_CREATE":
                 ctx = ctx_obj(ctx_json, self.outer)
-                events.call(ctx, "on_message")
+                await events.call(ctx, "on_message")
             elif event == "TYPING_START":
                 ctx = typing_ctx_obj(ctx_json)
-                events.call(ctx, "on_typing")
+                await events.call(ctx, "on_typing")
             elif event == "HOUSE_JOIN":
                 ctx = house_ctx_obj(ctx_json)
-                events.call(ctx, "on_house_join")
+                await events.call(ctx, "on_house_join")
             elif event == "HOUSE_MEMBER_ENTER":
                 ctx = member_enter_obj(ctx_json)
-                events.call(ctx, "on_member_enter")
+                await events.call(ctx, "on_member_enter")
             elif event == "INIT_STATE":
                 self.outer.user = bot_user(ctx_json)
-                events.call(None, "on_ready")
+                await events.call(None, "on_ready")
             elif event == "HOUSE_MEMBER_EXIT":
                 ctx = member_exit_obj(ctx_json)
-                events.call(ctx, "on_member_exit")
+                await events.call(ctx, "on_member_exit")
             elif event == "MESSAGE_UPDATE":
                 ctx = message_update_obj(ctx_json)
-                events.call(ctx, "on_message_update")
+                await events.call(ctx, "on_message_update")
