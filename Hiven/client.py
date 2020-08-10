@@ -3,7 +3,7 @@ from Hiven.Methods.send import *
 from Hiven.Methods.get_user import *
 from Hiven.Methods.ping import *
 
-# Should we make this async???
+# Should we make this async??? (I did it anyway)
 
 
 class Bot:
