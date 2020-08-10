@@ -25,10 +25,8 @@ class ctx_obj:
             self.username = author_json['username']
             self.name = author_json['name']
             self.id = author_json['id']
-            self.icon = author_json['icon']
-            
-        def getIconURL(self):
-            return f"https://media.hiven.io/v1/users/{self.id}/icons/{self.icon}"
+            self.icon_id = author_json['icon']
+            self.icon = f"https://media.hiven.io/v1/users/{self.id}/icons/{self.icon_id}"
 
-    def send(self, message):
-        self.bot.send(message=message, room_id=self.room_id)
+    async def send(self, message):
+        await self.bot.send(message=message, room_id=self.room_id)

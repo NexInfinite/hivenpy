@@ -17,7 +17,7 @@ class Bot:
         self.ws.start()
 
     async def send(self, message, room_id):
-        send_message(message, room_id, self.TOKEN, self.restURL)
+        await send_message(message, room_id, self.TOKEN, self.restURL)
 
     async def get_user(self, username):
         return GetUser(username, self)
